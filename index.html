@@ -29,6 +29,7 @@ function handleCredentialResponse(response) {
 function handleStoredCredentials() {
   // Check if there are stored credentials in sessionStorage
   var storedToken = sessionStorage.getItem("googleSignInToken");
+  console.log(storedToken)
 
   if (storedToken) {
     // Handle the stored token (e.g., consider the user as signed in)
