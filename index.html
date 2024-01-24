@@ -10,13 +10,13 @@
 
     <script>
 function handleCredentialResponse(response) {
-  console.log("Google Sign-In response:", response);
+  console.log("Google Sign-In response:", response.credential);
 
-  if (response.credential && response.credential.oauthToken) {
+  if (response.credential) {
     console.log("Sign-in successful. Displaying the protected div.");
 
     // Store user's credentials in sessionStorage
-    sessionStorage.setItem("googleSignInToken", response.credential.oauthToken);
+    sessionStorage.setItem("googleSignInToken", response.credential);
 
     // Show the protected div
     document.getElementById("protectedDiv").style.display = "block";
