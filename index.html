@@ -9,6 +9,10 @@
   <body>
 
     <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        
+  var googleSignInDiv = document.getElementById("google");
+  
 function handleCredentialResponse(response) {
   console.log("Google Sign-In response:", response.credential);
 
@@ -35,16 +39,12 @@ function handleStoredCredentials() {
     // Handle the stored token (e.g., consider the user as signed in)
     console.log("User is signed in.");
     document.getElementById("protectedDiv").style.display = "block";
-
+    googleSignInDiv.style.display = "none";
     // Redirect to the restricted page
     window.location.href = "https://yourdomain.com/restricted-page"; // Update with your actual URL
-  }
-}
-
-// Check for stored credentials on page load
-handleStoredCredentials();
-
-// Explicitly load the Google Sign-In library
+  } else{
+    
+  // Explicitly load the Google Sign-In library
 google.accounts.id.initialize({
   client_id: "1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com",
   callback: handleCredentialResponse
@@ -56,9 +56,17 @@ google.accounts.id.renderButton(
 );
 
 google.accounts.id.prompt();
+
+  }
+}
+
+// Check for stored credentials on page load
+handleStoredCredentials();
+
+});
     </script>
 
-
+<div id="google">
     <div id="g_id_onload"
       data-client_id="1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com"
       data-context="signin"
@@ -75,9 +83,10 @@ google.accounts.id.prompt();
       data-theme="outline"
       data-text="signin_with"
       data-size="large"
+      data-display="none"
       data-logo_alignment="left">
     </div>
-
+  </div>
     <!-- Protected div initially hidden -->
     <div id="protectedDiv" style="display: none;">
       <!-- Content of your protected div goes here -->
