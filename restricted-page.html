@@ -10,8 +10,9 @@
 <script>
   // Check if the user is authenticated
   window.onload = function () {
-    const storedCredentials = sessionStorage.getItem('user_credentials');
-    if (!storedCredentials) {
+    var storedToken = sessionStorage.getItem("googleSignInToken");
+  console.log(storedToken)
+    if (!storedToken) {
       // Redirect to the login page if not authenticated
       window.location.href = "index.html";
     }
