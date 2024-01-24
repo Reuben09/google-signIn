@@ -1,7 +1,7 @@
 <html lang="en">
   <head>
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="322841377665-ukrb99lh8d013u5dcrllk8gseguf3t3f.apps.googleusercontent.com">
     
     <script src="https://accounts.google.com/gsi/client" async></script>
 
@@ -20,7 +20,8 @@
 
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
-
+           
+          document.getElementById("google").style.display = "none";
           // Show the protected div
           document.getElementById("protectedDiv").style.display = "block";
           window.location.href = "https://reuben09-test.netlify.app/restricted-page.html";
@@ -37,6 +38,7 @@
 
         if (storedToken) {
           // Handle the stored token (e.g., consider the user as signed in)
+          document.getElementById("google").style.display = "none";
           console.log("User is signed in.");
           document.getElementById("protectedDiv").style.display = "block";
 
@@ -52,7 +54,7 @@
       function loadGoogleSignIn() {
         // Explicitly load the Google Sign-In library
         google.accounts.id.initialize({
-          client_id: "1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com",
+          client_id: "322841377665-ukrb99lh8d013u5dcrllk8gseguf3t3f.apps.googleusercontent.com",
           callback: handleCredentialResponse
         });
 
@@ -70,8 +72,9 @@
       };
     </script>
 
+<div id="google">
     <div id="g_id_onload"
-      data-client_id="1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com"
+      data-client_id="322841377665-ukrb99lh8d013u5dcrllk8gseguf3t3f.apps.googleusercontent.com"
       data-context="signin"
       data-ux_mode="popup"
       data-login_uri="https://reuben09-test.netlify.app/restricted-page.html"
@@ -89,6 +92,7 @@
       data-logo_alignment="left">
     </div>
  <p>Sign In</p>
+</div>
     <!-- Protected div initially hidden -->
     <div id="protectedDiv" style="display: none;">
       <!-- Content of your protected div goes here -->
