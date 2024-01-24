@@ -40,20 +40,20 @@
         client_id: "1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com",
         callback: handleCredentialResponse
       });
-
+ 
+      google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large" }  // customization attributes
+      );
+    
+      google.accounts.id.prompt()
         }
       }
     
 
       // Check for stored credentials on page load
       handleStoredCredentials();
-    
-      google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
-        { theme: "outline", size: "large" }  // customization attributes
-      );
-    
-      google.accounts.id.prompt(); // also display the One Tap dialog
+    ; // also display the One Tap dialog
     </script>
 
     <div id="g_id_onload"
