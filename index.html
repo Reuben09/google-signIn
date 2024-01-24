@@ -12,7 +12,7 @@
       document.addEventListener("DOMContentLoaded", function() {
         
   var googleSignInDiv = document.getElementById("google");
-  
+  googleSignInDiv.style.display = "none";
 function handleCredentialResponse(response) {
   console.log("Google Sign-In response:", response.credential);
 
@@ -32,7 +32,6 @@ function handleCredentialResponse(response) {
 
 function handleStoredCredentials() {
   // Check if there are stored credentials in sessionStorage
-  console.log("checking")
   var storedToken = sessionStorage.getItem("googleSignInToken");
   console.log(storedToken)
 
@@ -40,12 +39,15 @@ function handleStoredCredentials() {
     // Handle the stored token (e.g., consider the user as signed in)
     console.log("User is signed in.");
     document.getElementById("protectedDiv").style.display = "block";
-    googleSignInDiv.style.display = "none";
+
     // Redirect to the restricted page
-    window.location.href = "restricted-page.html"; // Update with your actual URL
-  } else{
-    
-  // Explicitly load the Google Sign-In library
+    window.location.href = "https://yourdomain.com/restricted-page"; // Update with your actual URL
+  }
+}
+
+// Check for stored credentials on page load
+handleStoredCredentials();
+
 google.accounts.id.initialize({
   client_id: "1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com",
   callback: handleCredentialResponse
@@ -57,14 +59,9 @@ google.accounts.id.renderButton(
 );
 
 google.accounts.id.prompt();
-
-  }
 }
 
-// Check for stored credentials on page load
-handleStoredCredentials();
-
-});
+);
     </script>
 
 <div id="google">
@@ -72,8 +69,8 @@ handleStoredCredentials();
       data-client_id="1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com"
       data-context="signin"
       data-ux_mode="popup"
-      data-login_uri="https://reuben09-test.netlify.app/restricted-page.html"
-      data-callback="handleStoredCredentials"
+      data-login_uri="https://reuben09-test.netlify.app/restricted-page"
+      data-callback="handleCredentialResponse"
       data-nonce=""
       data-itp_support="true">
     </div>
