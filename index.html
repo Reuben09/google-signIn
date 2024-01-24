@@ -32,6 +32,7 @@ function handleCredentialResponse(response) {
 
 function handleStoredCredentials() {
   // Check if there are stored credentials in sessionStorage
+  console.log("checking")
   var storedToken = sessionStorage.getItem("googleSignInToken");
   console.log(storedToken)
 
@@ -72,7 +73,7 @@ handleStoredCredentials();
       data-context="signin"
       data-ux_mode="popup"
       data-login_uri="https://reuben09-test.netlify.app/restricted-page.html"
-      data-callback="handleCredentialResponse"
+      data-callback="handleStoredCredentials"
       data-nonce=""
       data-itp_support="true">
     </div>
