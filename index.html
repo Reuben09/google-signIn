@@ -23,6 +23,7 @@
 
           // Show the protected div
           document.getElementById("protectedDiv").style.display = "block";
+          window.location.href = "https://reuben09-test.netlify.app/restricted-page.html";
         } else {
           console.log("Sign-in failed or incomplete. Handle accordingly.");
           // Additional logic for handling failed sign-in
@@ -41,7 +42,7 @@
 
           // Redirect to the restricted page
           console.log("Redirecting...");
-          window.location.href = "https://yourdomain.com/restricted-page"; // Update with your actual URL
+          window.location.href = "https://reuben09-test.netlify.app/restricted-page.html"; // Update with your actual URL
         } else {
           // No stored token, load Google Sign-In library
           loadGoogleSignIn();
@@ -73,7 +74,7 @@
       data-client_id="1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com"
       data-context="signin"
       data-ux_mode="popup"
-      data-login_uri="https://reuben09-test.netlify.app/restricted-page"
+      data-login_uri="https://reuben09-test.netlify.app/restricted-page.html"
       data-callback="handleCredentialResponse"
       data-nonce=""
       data-itp_support="true">
