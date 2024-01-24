@@ -15,14 +15,36 @@
         // Assuming you have some logic to determine if sign-in is successful
         var isSignInSuccessful = true;
     
-        if (isSignInSuccessful) {
-          console.log("Sign-in successful. Displaying the protected div.");
-    
-          // Show the protected div
-          document.getElementById("protectedDiv").style.display = "block";
-        }
+        if (response.credential) {
+    console.log("Sign-in successful. Displaying the protected div.");
+
+    // Store user's credentials in sessionStorage
+    sessionStorage.setItem("googleSignInToken", response.credential);
+
+    // Show the protected div
+    document.getElementById("protectedDiv").style.display = "block";
+  } else {
+    console.log("Sign-in failed or incomplete. Handle accordingly.");
+    // Additional logic for handling failed sign-in
+  }
       }
     
+
+      function handleStoredCredentials() {
+  // Check if there are stored credentials in sessionStorage
+  var storedToken = sessionStorage.getItem("googleSignInToken");
+  console.log("Stored Token:", storedToken);
+
+  if (storedToken) {
+    // Handle the stored token (e.g., consider the user as signed in)
+    console.log("User is signed in.");
+    document.getElementById("protectedDiv").style.display = "block";
+
+    // Redirect to the restricted page
+    console.log("Redirecting...");
+    window.location.href = "https://yourdomain.com/restricted-page"; // Update with your actual URL
+  }
+}
       // Explicitly load the Google Sign-In library
       google.accounts.id.initialize({
         client_id: "1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com",
