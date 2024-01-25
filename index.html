@@ -9,21 +9,6 @@
   <body>
 
     <script>
-      function handleLogout(){
-        google.accounts.id.disableAutoSelect()
-        google.accounts.id.prompt();
-
-         sessionStorage.removeItem("googleSignInToken");
-         setTimeout(function() {
-        // Refresh the page
-        location.reload();
-    }, 2000);
-      }
-
-  document.getElementById('logout').addEventListener('click', function() {
-    handleLogout();
-});
-      
       function handleCredentialResponse(response) {
         console.log("Google Sign-In response:", response);
     
@@ -92,9 +77,18 @@
 
         function decodeJWT(string){
   var arr = string.split('.');
-  return { header: JSON.parse(atob(arr[0])), payload: JSON.parse(atob(arr[1])), secret: arr[2] }
-          
+  return { header: JSON.parse(atob(arr[0])), payload: JSON.parse(atob(arr[1])), secret: arr[2] }         
 }
+        function handleLogout(){
+        google.accounts.id.disableAutoSelect()
+        google.accounts.id.prompt();
+
+         sessionStorage.removeItem("googleSignInToken");
+         setTimeout(function() {
+        // Refresh the page
+        location.reload();
+    }, 2000);
+      }
     </script>
 
 <div id="google">
