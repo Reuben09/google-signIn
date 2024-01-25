@@ -9,6 +9,21 @@
   <body>
 
     <script>
+      function handleLogout(){
+        google.accounts.id.disableAutoSelect()
+        google.accounts.id.prompt();
+
+         sessionStorage.removeItem("googleSignInToken");
+         setTimeout(function() {
+        // Refresh the page
+        location.reload();
+    }, 2000);
+      }
+
+      document.getElementById('logout').addEventListener('click', function() {
+    handleLogout();
+});
+      
       function handleCredentialResponse(response) {
         console.log("Google Sign-In response:", response);
     
@@ -109,6 +124,7 @@ data-logo_alignment="left">
       <!-- Content of your protected div goes here -->
       <h1>This is the protected content!</h1>
       <p>User is signed in as <span id="usernameSpan"></span</p>
+      <button id="logout">Log out</button>
     </div>
 
     
