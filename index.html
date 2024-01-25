@@ -18,6 +18,9 @@
         if (response.credential) {
           console.log(response);
 
+          var email = google.accounts.id.getCredential().email;
+          console.log("Signed-in user's email:", email);
+          
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
            
