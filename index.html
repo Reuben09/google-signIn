@@ -9,6 +9,18 @@
   <body>
 
     <script>
+      var isUserSignedIn = true; // Change this based on your actual logic
+
+// Get the element by its ID
+var userStatusElement = document.getElementById('userStatus');
+
+// Change the text based on the user's sign-in status
+if (isUserSignedIn) {
+  userStatusElement.innerText = "Signed in as:";
+} else {
+  userStatusElement.innerText = "Sign in with:";
+}
+
       function handleCredentialResponse(response) {
         console.log("Google Sign-In response:", response);
     
@@ -83,14 +95,13 @@
       data-itp_support="true">
     </div>
 <!--restricted-page.html-->
-    <div class="g_id_signin"
-      data-type="standard"
-      data-shape="rectangular"
-      data-theme="outline"
-      data-text="signin_with"
-      data-size="large"
-      data-logo_alignment="left">
-    </div>
+<div id="userStatus" class="g_id_signin"
+data-type="standard"
+data-shape="rectangular"
+data-theme="outline"
+data-size="large"
+data-logo_alignment="left">
+</div>
  <p>Sign In</p>
 </div>
     <!-- Protected div initially hidden -->
