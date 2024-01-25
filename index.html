@@ -21,10 +21,10 @@
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
            
-          document.getElementById("google").style.display = "none";
+          //document.getElementById("google").style.display = "none";
           // Show the protected div
           document.getElementById("protectedDiv").style.display = "block";
-          window.location.href = "https://reuben09-test.netlify.app/restricted-page.html";
+          //window.location.href = "restricted-page.html";
         } else {
           console.log("Sign-in failed or incomplete. Handle accordingly.");
           // Additional logic for handling failed sign-in
@@ -43,8 +43,8 @@
           document.getElementById("protectedDiv").style.display = "block";
 
           // Redirect to the restricted page
-          console.log("Redirecting...");
-          window.location.href = "https://reuben09-test.netlify.app/restricted-page.html"; // Update with your actual URL
+          //console.log("Redirecting...");
+          //window.location.href = "restricted-page.html"; // Update with your actual URL
         } else {
           // No stored token, load Google Sign-In library
           loadGoogleSignIn();
@@ -77,12 +77,12 @@
       data-client_id="1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com"
       data-context="signin"
       data-ux_mode="popup"
-      data-login_uri="https://reuben09-test.netlify.app/restricted-page.html"
+      data-login_uri="" 
       data-callback="handleCredentialResponse"
       data-nonce=""
       data-itp_support="true">
     </div>
-
+<!--restricted-page.html-->
     <div class="g_id_signin"
       data-type="standard"
       data-shape="rectangular"
