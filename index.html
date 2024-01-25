@@ -16,7 +16,7 @@
         var isSignInSuccessful = true;
     
         if (response.credential) {
-          console.log("Sign-in successful. Displaying the protected div.");
+          console.log(response);
 
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
