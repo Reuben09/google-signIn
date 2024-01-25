@@ -9,20 +9,20 @@
   <body>
 
     <script>
-      function handleLogout(){
-        google.accounts.id.disableAutoSelect()
-        google.accounts.id.prompt();
+    //   function handleLogout(){
+    //     google.accounts.id.disableAutoSelect()
+    //     google.accounts.id.prompt();
 
-         sessionStorage.removeItem("googleSignInToken");
-         setTimeout(function() {
-        // Refresh the page
-        location.reload();
-    }, 2000);
-      }
+    //      sessionStorage.removeItem("googleSignInToken");
+    //      setTimeout(function() {
+    //     // Refresh the page
+    //     location.reload();
+    // }, 2000);
+    //   }
 
-      document.getElementById('logout').addEventListener('click', function() {
-    handleLogout();
-});
+//       document.getElementById('logout').addEventListener('click', function() {
+//     handleLogout();
+// });
       
       function handleCredentialResponse(response) {
         console.log("Google Sign-In response:", response);
