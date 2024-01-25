@@ -16,10 +16,10 @@
         var isSignInSuccessful = true;
     
         if (response.credential) {
-          console.log(response);
-
-          var email = google.accounts.id.getCredential().email;
-          console.log("Signed-in user's email:", email);
+         var accessToken = response.credential;
+      
+      // Make a GET request to the Google API for user information
+      getUserInfo(accessToken);
           
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
@@ -68,6 +68,21 @@
 
         google.accounts.id.prompt(); // also display the One Tap dialog
       }
+
+       function getUserInfo(accessToken) {
+    var apiUrl = "https://www.googleapis.com/oauth2/v2/userinfo";
+    var urlWithToken = apiUrl + "?access_token=" + accessToken;
+
+    fetch(urlWithToken)
+      .then(response => response.json())
+      .then(data => {
+        console.log("User information:", data);
+        // Use the user information as needed
+      })
+      .catch(error => {
+        console.error("Error fetching user information:", error);
+      });
+  }
 
       // Check for stored credentials on page load
       window.onload = function() {
