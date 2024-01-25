@@ -17,7 +17,7 @@
     
         if (response.credential) {
           console.log(response.credential)
-          console.log(decodeJWT(response.credential));
+          console.log(decodeJWT(response.credential).payload.email);
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
            
