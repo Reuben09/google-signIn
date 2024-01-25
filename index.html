@@ -39,6 +39,8 @@
         console.log("Stored Token:", storedToken);
 
         if (storedToken) {
+          const usernameSpan = document.getElementById('usernameSpan');
+            usernameSpan.textContent = decodeJWT(storedToken).payload.email;
           // Handle the stored token (e.g., consider the user as signed in)
           document.getElementById("google").style.display = "none";
           console.log("User is signed in.");
