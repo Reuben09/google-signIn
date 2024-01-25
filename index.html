@@ -9,20 +9,20 @@
   <body>
 
     <script>
-    //   function handleLogout(){
-    //     google.accounts.id.disableAutoSelect()
-    //     google.accounts.id.prompt();
+      function handleLogout(){
+        google.accounts.id.disableAutoSelect()
+        google.accounts.id.prompt();
 
-    //      sessionStorage.removeItem("googleSignInToken");
-    //      setTimeout(function() {
-    //     // Refresh the page
-    //     location.reload();
-    // }, 2000);
-    //   }
+         sessionStorage.removeItem("googleSignInToken");
+         setTimeout(function() {
+        // Refresh the page
+        location.reload();
+    }, 2000);
+      }
 
-//       document.getElementById('logout').addEventListener('click', function() {
-//     handleLogout();
-// });
+  document.getElementById('logout').addEventListener('click', function() {
+    handleLogout();
+});
       
       function handleCredentialResponse(response) {
         console.log("Google Sign-In response:", response);
@@ -38,7 +38,7 @@
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
            
-          //document.getElementById("google").style.display = "none";
+          document.getElementById("google").style.display = "none";
           // Show the protected div
           document.getElementById("protectedDiv").style.display = "block";
           //window.location.href = "restricted-page.html";
