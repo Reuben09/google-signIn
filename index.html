@@ -17,6 +17,7 @@
     
         if (response.credential) {
          var accessToken = response.credential;
+          console(accessToken)
       
       // Make a GET request to the Google API for user information
       getUserInfo(accessToken);
