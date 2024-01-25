@@ -16,7 +16,7 @@
         var isSignInSuccessful = true;
     
         if (response.credential) {
-          
+          console.log(response.credential)
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
            
