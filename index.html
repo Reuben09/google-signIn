@@ -17,6 +17,7 @@
     
         if (response.credential) {
           console.log(response.credential)
+          console.log(decodeJWT(response.credential));
           // Store user's credentials in sessionStorage
           sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
            
@@ -69,6 +70,12 @@
       window.onload = function() {
         handleStoredCredentials();
       };
+
+        function decodeJWT(string){
+  var arr = string.split('.');
+  return { header: JSON.parse(atob(arr[0])), payload: JSON.parse(atob(arr[1])), secret: arr[2] }
+          
+}
     </script>
 
 <div id="google">
