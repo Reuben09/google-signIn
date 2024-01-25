@@ -6,21 +6,9 @@
     <script src="https://accounts.google.com/gsi/client" async></script>
 
   </head>
-  <body>
+  <body style="background-color: red">
 
     <script>
-      var isUserSignedIn = true; // Change this based on your actual logic
-
-// Get the element by its ID
-var userStatusElement = document.getElementById('userStatus');
-
-// Change the text based on the user's sign-in status
-if (isUserSignedIn) {
-  userStatusElement.innerText = "Signed in as:";
-} else {
-  userStatusElement.innerText = "Sign in with:";
-}
-
       function handleCredentialResponse(response) {
         console.log("Google Sign-In response:", response);
     
