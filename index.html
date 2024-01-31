@@ -1823,6 +1823,7 @@ src="https://www.facebook.com/tr?id=202986599133637&ev=PageView&noscript=1"/>
                 "> Next </button>
       </div>
     </div>
+
   </form>
   <form id="signup-form" method="post" style="display: none; justify-content: center;">
     <div style="width: 100%"> 
@@ -1860,6 +1861,7 @@ src="https://www.facebook.com/tr?id=202986599133637&ev=PageView&noscript=1"/>
         <label class="form-check-label" for="tncCheck"> Accept <a href="https://www.thecontractorsprofitsystem.com/Agreement.html" target="_blank">Terms &amp; Conditions </a> </label>
       </div>
       <div style="text-align: center">
+        <img src="https://i.imgur.com/QkbMVBK.png" style="width: 3rem;" />
         <button type="submit" id="signup-form-submit" class="btn" disabled="" style="
   background-color: #feb516;
   color: #fff;
@@ -2002,46 +2004,46 @@ jQuery($ => {
               return;
             }
 
-            // fetch("https://www.contractorsprofit.app/backend/api/loginstripe", {
-            //   method: "POST",
-            //   headers: {
-            //     "Content-Type": "application/json",
-            //   },
-            //   body: JSON.stringify({
-            //     Name: document.getElementById("signup-form-name").value,
-            //     Email: document.getElementById("signup-form-email").value,
-            //     cellphone:
-            //         document.getElementById("signup-form-phone").value,
-            //     stripetoken: result.token.id,
-            //     servicelevel: urlParams.get("plan") || 1,
-            //     Annual: urlParams.get("annual") || 0,
-            //     coupon: urlParams.get("coupon"),
-            //     sourceid: urlParams.get("sourceid") + '-cpsD',
-            //   }),
-            // })
-            //   .then((response) => response.json())
-            //   .then((loginstripeResponse) => {
-            //     if (loginstripeResponse[0].split(":")[1] == "0") {
-            //       document.getElementById("signup-form-submit").disabled = false;
-            //       document.getElementById("loading").style.display = "none";
-            //       alert(loginstripeResponse[1].split(":")[1]);
-            //     } else {
-            //       window.location.href = "../completed.html";
-            //       document.getElementById(
-            //         "signup-form-submit"
-            //       ).disabled = false;
-            //       document.getElementById("loading").style.display = "none";
-            //       try {
-            //         fbq("track", "Purchase");
-            //       } catch (error) {}
-            //     }
-            //   })
-            //   .catch(() => {
-            //     document.getElementById(
-            //       "signup-form-submit"
-            //     ).disabled = false;
-            //     document.getElementById("loading").style.display = "none";
-            //   });
+            fetch("https://www.contractorsprofit.app/backend/api/loginstripe", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                Name: document.getElementById("signup-form-name").value,
+                Email: document.getElementById("signup-form-email").value,
+                cellphone:
+                    document.getElementById("signup-form-phone").value,
+                stripetoken: result.token.id,
+                servicelevel: urlParams.get("plan") || 1,
+                Annual: urlParams.get("annual") || 0,
+                coupon: urlParams.get("coupon"),
+                sourceid: urlParams.get("sourceid") + '-cpsD',
+              }),
+            })
+              .then((response) => response.json())
+              .then((loginstripeResponse) => {
+                if (loginstripeResponse[0].split(":")[1] == "0") {
+                  document.getElementById("signup-form-submit").disabled = false;
+                  document.getElementById("loading").style.display = "none";
+                  alert(loginstripeResponse[1].split(":")[1]);
+                } else {
+                  window.location.href = "../completed.html";
+                  document.getElementById(
+                    "signup-form-submit"
+                  ).disabled = false;
+                  document.getElementById("loading").style.display = "none";
+                  try {
+                    fbq("track", "Purchase");
+                  } catch (error) {}
+                }
+              })
+              .catch(() => {
+                document.getElementById(
+                  "signup-form-submit"
+                ).disabled = false;
+                document.getElementById("loading").style.display = "none";
+              });
           });
         });
     })();
