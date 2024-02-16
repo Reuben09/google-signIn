@@ -213,11 +213,10 @@ function handleCredentialResponse(response) {
         const userEmail = decodeJWT(response.credential).payload.email;
 
         // Define the allowed email sets
-        const allowedEmailSet1 = new Set(["example1@example.com", "example2@example.com"]);
-        const allowedEmailSet2 = new Set(["example3@example.com", "example4@example.com"]);
+        const allowedEmailSet1 = new Set(["chukwukareuben09@gmail.com", "example2@example.com"]);
 
         // Check if the user's email belongs to one of the allowed sets
-        if (allowedEmailSet1.has(userEmail) || allowedEmailSet2.has(userEmail)) {
+        if (allowedEmailSet1.has(userEmail)) {
             const usernameSpan = document.getElementById('usernameSpan');
             usernameSpan.textContent = userEmail;
 
