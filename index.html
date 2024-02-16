@@ -218,14 +218,14 @@ function handleCredentialResponse(response) {
 
             // Store user's credentials in sessionStorage
             sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
-
+             alert("sign in successful");
             document.getElementById("google").style.display = "none";
             // Show the protected div
             document.getElementById("protectedDiv").style.display = "block";
             //window.location.href = "restricted-page.html";
         } else {
             // User's email is not in the allowed domain, handle accordingly
-            console.log("User's email is not allowed to log in.");
+            alert("User's email is not allowed to log in.");
             // Additional logic for handling unauthorized access
         }
     } else {
