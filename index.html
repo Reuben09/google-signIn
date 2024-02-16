@@ -247,13 +247,13 @@
       const usernameSpan = document.getElementById('usernameSpan');
         usernameSpan.textContent = decodeJWT(JSON.parse(storedToken)).payload.email;
       // Handle the stored token (e.g., consider the user as signed in)
-      document.getElementById("google").style.display = "none"; 
+      // document.getElementById("google").style.display = "none"; 
       console.log("User is signed in.");
       document.getElementById("protectedDiv").style.display = "block";
 
       // Redirect to the restricted page
       console.log("Redirecting...");
-      // window.location.href = "admin-menu.html"; // Update with your actual URL
+      window.location.href = "admin-menu.html"; // Update with your actual URL
     } else {
       // No stored token, load Google Sign-In library
       //loadGoogleSignIn(); //auto ask for sign in 
