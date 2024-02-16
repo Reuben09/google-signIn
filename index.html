@@ -254,7 +254,7 @@ function handleCredentialResponse(response) {
 
       // Redirect to the restricted page
       console.log("Redirecting...");
-      window.location.href = "admin-menu.html"; // Update with your actual URL
+      // window.location.href = "admin-menu.html"; // Update with your actual URL
     } else {
       // No stored token, load Google Sign-In library
       //loadGoogleSignIn(); //auto ask for sign in 
@@ -292,7 +292,7 @@ return { header: JSON.parse(atob(arr[0])), payload: JSON.parse(atob(arr[1])), se
      sessionStorage.removeItem("googleSignInToken");
      setTimeout(function() {
     // Refresh the page
-    // location.reload();
+    location.reload();
 }, 1000);
   }
 </script>
