@@ -201,7 +201,7 @@
 <script src='assets/js/includeHeader_Footer.js'></script>
 
 <script>
-  function handleCredentialResponse(response) {
+function handleCredentialResponse(response) {
     console.log("Google Sign-In response:", response);
 
     // Assuming you have some logic to determine if sign-in is successful
@@ -211,28 +211,25 @@
         console.log(response.credential)
         const userEmail = decodeJWT(response.credential).payload.email;
 
-        // Define the allowed email sets
-        const allowedEmailSet1 = new Set(["chukwukareuben09@gmail.com", "example2@example.com"]);
-
-        // Check if the user's email belongs to one of the allowed sets
-        if (allowedEmailSet1.has(userEmail)) {
+        // Check if the user's email ends with @castletontrading.com or @theprolawn.com
+        if (userEmail.endsWith("@castletontrading.com") || userEmail.endsWith("@theprolawn.com")) {
             const usernameSpan = document.getElementById('usernameSpan');
             usernameSpan.textContent = userEmail;
 
             // Store user's credentials in sessionStorage
             sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
-            alert("signed in");
+
             document.getElementById("google").style.display = "none";
             // Show the protected div
             document.getElementById("protectedDiv").style.display = "block";
             //window.location.href = "restricted-page.html";
         } else {
-            // User's email is not in the allowed sets, handle accordingly
-            alert("User's email is not allowed to log in.");
+            // User's email is not in the allowed domain, handle accordingly
+            console.log("User's email is not allowed to log in.");
             // Additional logic for handling unauthorized access
         }
     } else {
-        alert("Sign-in failed or incomplete. Handle accordingly.");
+        console.log("Sign-in failed or incomplete. Handle accordingly.");
         // Additional logic for handling failed sign-in
     }
 }
