@@ -222,18 +222,18 @@ function handleCredentialResponse(response) {
 
             // Store user's credentials in sessionStorage
             sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
-
+            alert("signed in");
             document.getElementById("google").style.display = "none";
             // Show the protected div
             document.getElementById("protectedDiv").style.display = "block";
             //window.location.href = "restricted-page.html";
         } else {
             // User's email is not in the allowed sets, handle accordingly
-            console.log("User's email is not allowed to log in.");
+            alert("User's email is not allowed to log in.");
             // Additional logic for handling unauthorized access
         }
     } else {
-        console.log("Sign-in failed or incomplete. Handle accordingly.");
+        alert("Sign-in failed or incomplete. Handle accordingly.");
         // Additional logic for handling failed sign-in
     }
 }
@@ -292,7 +292,7 @@ return { header: JSON.parse(atob(arr[0])), payload: JSON.parse(atob(arr[1])), se
      sessionStorage.removeItem("googleSignInToken");
      setTimeout(function() {
     // Refresh the page
-    location.reload();
+    // location.reload();
 }, 1000);
   }
 </script>
