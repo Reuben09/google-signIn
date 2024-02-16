@@ -200,9 +200,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src='assets/js/includeHeader_Footer.js'></script>
 
-
 <script>
-function handleCredentialResponse(response) {
+document.addEventListener("DOMContentLoaded", function(event){
+  function handleCredentialResponse(response) {
     console.log("Google Sign-In response:", response);
 
     // Assuming you have some logic to determine if sign-in is successful
@@ -295,10 +295,8 @@ return { header: JSON.parse(atob(arr[0])), payload: JSON.parse(atob(arr[1])), se
     location.reload();
 }, 1000);
   }
+});
+
 </script>
-
-
-
-
 </body>
 </html>
