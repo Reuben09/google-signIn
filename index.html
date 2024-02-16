@@ -247,7 +247,7 @@
       const usernameSpan = document.getElementById('usernameSpan');
         usernameSpan.textContent = decodeJWT(JSON.parse(storedToken)).payload.email;
       // Handle the stored token (e.g., consider the user as signed in)
-      //document.getElementById("google").style.display = "none"; stop displaying google div
+      document.getElementById("google").style.display = "none"; 
       console.log("User is signed in.");
       document.getElementById("protectedDiv").style.display = "block";
 
