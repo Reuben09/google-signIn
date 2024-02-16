@@ -161,28 +161,8 @@
                   </div>
               </div>
               </div>
-            </div>
-          
-  <script>
-    function onSignIn(user) {
-      // Signed in successfully.
-      console.log(user);
-    }
+            </div>     
 
-    function signIn() {
-      google.accounts.id.initialize({
-        client_id: "1002294605425-1qoa9kbsesa8428ic050hdp2igdisg42.apps.googleusercontent.com",
-        callback: onSignIn
-      })
-      google.accounts.id.prompt();
-    }
-  </script>
-
-
-      
-     
-
- 
    
           </div>
           
@@ -222,29 +202,43 @@
 
 
 <script>
-  function handleCredentialResponse(response) {
+function handleCredentialResponse(response) {
     console.log("Google Sign-In response:", response);
 
     // Assuming you have some logic to determine if sign-in is successful
     var isSignInSuccessful = true;
 
     if (response.credential) {
-      console.log(response.credential)
-      console.log(decodeJWT(response.credential).payload.email);
-       const usernameSpan = document.getElementById('usernameSpan');
-        usernameSpan.textContent = decodeJWT(response.credential).payload.email;
-      // Store user's credentials in sessionStorage
-      sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
-       
-      document.getElementById("google").style.display = "none";
-      // Show the protected div
-      document.getElementById("protectedDiv").style.display = "block";
-      //window.location.href = "restricted-page.html";
+        console.log(response.credential)
+        const userEmail = decodeJWT(response.credential).payload.email;
+
+        // Define the allowed email sets
+        const allowedEmailSet1 = new Set(["example1@example.com", "example2@example.com"]);
+        const allowedEmailSet2 = new Set(["example3@example.com", "example4@example.com"]);
+
+        // Check if the user's email belongs to one of the allowed sets
+        if (allowedEmailSet1.has(userEmail) || allowedEmailSet2.has(userEmail)) {
+            const usernameSpan = document.getElementById('usernameSpan');
+            usernameSpan.textContent = userEmail;
+
+            // Store user's credentials in sessionStorage
+            sessionStorage.setItem("googleSignInToken", JSON.stringify(response.credential));
+
+            document.getElementById("google").style.display = "none";
+            // Show the protected div
+            document.getElementById("protectedDiv").style.display = "block";
+            //window.location.href = "restricted-page.html";
+        } else {
+            // User's email is not in the allowed sets, handle accordingly
+            console.log("User's email is not allowed to log in.");
+            // Additional logic for handling unauthorized access
+        }
     } else {
-      console.log("Sign-in failed or incomplete. Handle accordingly.");
-      // Additional logic for handling failed sign-in
+        console.log("Sign-in failed or incomplete. Handle accordingly.");
+        // Additional logic for handling failed sign-in
     }
-  }
+}
+
 
   function handleStoredCredentials() {
     // Check if there are stored credentials in sessionStorage
