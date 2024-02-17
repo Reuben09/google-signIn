@@ -212,7 +212,7 @@ function handleCredentialResponse(response) {
         const userEmail = decodeJWT(response.credential).payload.email;
 
         // Check if the user's email ends with @castletontrading.com or @theprolawn.com
-        if (userEmail.endsWith("@castletontrading.com") || userEmail.endsWith("@theprolawn.com")) {
+        if (userEmail.endsWith("@castletontrading.com") || userEmail.endsWith("@gmail.com")) {
             const usernameSpan = document.getElementById('usernameSpan');
             usernameSpan.textContent = userEmail;
 
