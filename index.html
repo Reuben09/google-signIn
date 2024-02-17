@@ -222,7 +222,7 @@ function handleCredentialResponse(response) {
             document.getElementById("google").style.display = "none";
             // Show the protected div
             document.getElementById("protectedDiv").style.display = "block";
-            //window.location.href = "restricted-page.html";
+            window.location.href = "admin-menu.html"; 
         } else {
             // User's email is not in the allowed domain, handle accordingly
             alert("User's email is not allowed to log in.");
